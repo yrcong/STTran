@@ -1,0 +1,626 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ae38bafa-20d0-4b79-b3eb-a22fc71d671c" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/fasterRCNN/demo.py" beforeDir="false" afterPath="$PROJECT_DIR$/fasterRCNN/demo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fasterRCNN/images/img1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fasterRCNN/images/img1_det.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fasterRCNN/images/img1_det_res101.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fasterRCNN/images/img2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fasterRCNN/images/img2_det.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fasterRCNN/images/img2_det_res101.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fasterRCNN/images/img3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fasterRCNN/images/img3_det.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fasterRCNN/images/img3_det_res101.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fasterRCNN/images/img4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fasterRCNN/images/img4_det.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fasterRCNN/images/img4_det_res101.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fasterRCNN/lib/datasets/coco.py" beforeDir="false" afterPath="$PROJECT_DIR$/fasterRCNN/lib/datasets/coco.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fasterRCNN/lib/model/faster_rcnn/faster_rcnn.py" beforeDir="false" afterPath="$PROJECT_DIR$/fasterRCNN/lib/model/faster_rcnn/faster_rcnn.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fasterRCNN/lib/model/faster_rcnn/resnet.py" beforeDir="false" afterPath="$PROJECT_DIR$/fasterRCNN/lib/model/faster_rcnn/resnet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fasterRCNN/lib/model/roi_layers/nms.py" beforeDir="false" afterPath="$PROJECT_DIR$/fasterRCNN/lib/model/roi_layers/nms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fasterRCNN/lib/model/roi_layers/roi_align.py" beforeDir="false" afterPath="$PROJECT_DIR$/fasterRCNN/lib/model/roi_layers/roi_align.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fasterRCNN/lib/model/roi_layers/roi_pool.py" beforeDir="false" afterPath="$PROJECT_DIR$/fasterRCNN/lib/model/roi_layers/roi_pool.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fasterRCNN/lib/model/rpn/anchor_target_layer.py" beforeDir="false" afterPath="$PROJECT_DIR$/fasterRCNN/lib/model/rpn/anchor_target_layer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fasterRCNN/lib/model/rpn/proposal_layer.py" beforeDir="false" afterPath="$PROJECT_DIR$/fasterRCNN/lib/model/rpn/proposal_layer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fasterRCNN/lib/model/rpn/rpn.py" beforeDir="false" afterPath="$PROJECT_DIR$/fasterRCNN/lib/model/rpn/rpn.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fasterRCNN/lib/model/utils/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/fasterRCNN/lib/model/utils/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fasterRCNN/lib/model/utils/net_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/fasterRCNN/lib/model/utils/net_utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fasterRCNN/lib/pycocotools/coco.py" beforeDir="false" afterPath="$PROJECT_DIR$/fasterRCNN/lib/pycocotools/coco.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fasterRCNN/lib/roi_data_layer/roidb.py" beforeDir="false" afterPath="$PROJECT_DIR$/fasterRCNN/lib/roi_data_layer/roidb.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fasterRCNN/test_net.py" beforeDir="false" afterPath="$PROJECT_DIR$/fasterRCNN/test_net.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fasterRCNN/trainval_net.py" beforeDir="false" afterPath="$PROJECT_DIR$/fasterRCNN/trainval_net.py" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="train.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/train.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="724">
+              <caret line="43" column="5" selection-start-line="43" selection-end-line="43" selection-end-column="5" />
+              <folding>
+                <element signature="e#0#12#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="262">
+              <caret line="33" column="12" lean-forward="true" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/config.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="66">
+              <caret line="12" column="22" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="slurm_train.sh" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/slurm_train.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="462">
+              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="slurm-362732-out.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/slurm-362732-out.txt">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="slurm-362733-out.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/slurm-362733-out.txt">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="slurm-362734-out.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/slurm-362734-out.txt">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="slurm-362730-out.txt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/slurm-362730-out.txt">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>loc</find>
+      <find>position_embed</find>
+      <find>TransformerDecoderLayer_LSTM</find>
+      <find>TransformerEncoderLayer</find>
+      <find>show_interval</find>
+      <find>save_path</find>
+      <find>self.augmentation</find>
+      <find>joint_path</find>
+      <find>root_path</find>
+      <find>filter_exsmall_box</find>
+      <find>stacked_output</find>
+      <find>attention_module</find>
+      <find>mm_loss</find>
+      <find>self.Parallel</find>
+      <find>mode</find>
+      <find>setting</find>
+      <find>train_x</find>
+      <find>is_train</find>
+      <find>im_index</find>
+      <find>box_idx</find>
+      <find>method</find>
+      <find>phrdet</find>
+      <find>ckpt</find>
+      <find>model</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/fasterRCNN" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/test_batch.py" />
+        <option value="$PROJECT_DIR$/dataloader/action_genome.py" />
+        <option value="$PROJECT_DIR$/lib/rel_model_sgdet.py" />
+        <option value="$PROJECT_DIR$/lib/config.py" />
+        <option value="$PROJECT_DIR$/lib/transformer.py" />
+        <option value="$PROJECT_DIR$/lib/funcs.py" />
+        <option value="$PROJECT_DIR$/lib/sttran.py" />
+        <option value="$PROJECT_DIR$/lib/object_detector.py" />
+        <option value="$PROJECT_DIR$/lib/evaluation_recall.py" />
+        <option value="$PROJECT_DIR$/test.py" />
+        <option value="$PROJECT_DIR$/train.py" />
+        <option value="$PROJECT_DIR$/slurm_train.sh" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-244" />
+    <option name="y" value="289" />
+    <option name="width" value="2560" />
+    <option name="height" value="940" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="STTran" type="b2602c69:ProjectViewProjectNode" />
+              <item name="STTran" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="STTran" type="b2602c69:ProjectViewProjectNode" />
+              <item name="STTran" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/fasterRCNN/models" />
+      <recent name="$PROJECT_DIR$/tmp" />
+      <recent name="$PROJECT_DIR$/data" />
+      <recent name="$PROJECT_DIR$/dataloader" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/tmp" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.train">
+    <configuration name="test_batch" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="STTran" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
+      <option name="PARAMETERS" value="-model_path tmp/sgdet_8.tar -mode sgdet" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="train" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="STTran" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/train.py" />
+      <option name="PARAMETERS" value="-datasize large -bce_loss" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.train" />
+      <item itemvalue="Python.test_batch" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.train" />
+        <item itemvalue="Python.test_batch" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ae38bafa-20d0-4b79-b3eb-a22fc71d671c" name="Default" comment="" />
+      <created>1627940342351</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1627940342351</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-6" y="-6" width="2572" height="1426" extended-state="6" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14387071" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32972136" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Python Console" order="7" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3993808" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32972136" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/train.py</url>
+          <line>99</line>
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test.py</url>
+          <line>16</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/test.py</url>
+          <line>38</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/train.py</url>
+          <line>76</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/lib/evaluation_recall.py</url>
+          <line>107</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/lib/evaluation_recall.py</url>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="13" />
+    </breakpoint-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateCodeFragment">
+      <expression>
+        <expression-string>torch.device('gpu')</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>torch.cuda.device('cpu')</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>torch.cuda.device('cuda:2')</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>torch.cuda.device('cuda:1')</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>torch.cuda.device('cuda:0')</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>torch.cuda.device('gpu')</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>torch.cuda.device()</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>rel_scores.argmax(1)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>score_inds</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="31" column="24" lean-forward="true" selection-start-line="31" selection-start-column="24" selection-end-line="31" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/sttran.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5632">
+          <caret line="264" column="8" selection-start-line="264" selection-start-column="8" selection-end-line="264" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="924">
+          <caret line="46" column="16" selection-start-line="46" selection-start-column="16" selection-end-line="46" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/sttran.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5632">
+          <caret line="264" column="8" selection-start-line="264" selection-start-column="8" selection-end-line="264" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="23" column="28" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="704">
+          <caret line="32" column="12" lean-forward="true" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/sttran.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8338">
+          <caret line="387" column="11" selection-start-line="387" selection-start-column="11" selection-end-line="387" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/transformer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4488">
+          <caret line="206" column="31" selection-start-line="206" selection-start-column="31" selection-end-line="206" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2112">
+          <caret line="100" selection-start-line="100" selection-end-line="100" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda3/tmp/envs/dynsg/lib/python3.6/site-packages/torch/nn/modules/module.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="11638">
+          <caret line="536" selection-start-line="536" selection-end-line="536" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/sttran.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9922">
+          <caret line="459" selection-start-line="459" selection-end-line="459" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="858">
+          <caret line="41" column="102" selection-start-line="41" selection-start-column="102" selection-end-line="41" selection-end-column="102" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/transformer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2002">
+          <caret line="94" column="29" selection-start-line="94" selection-start-column="15" selection-end-line="94" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dataloader/object_bbox_and_relationship_filtersmall.pkl">
+      <provider selected="true" editor-type-id="LargeFileEditor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/rel_model_joint.py" />
+    <entry file="file://$PROJECT_DIR$/lib/model.py" />
+    <entry file="file://$PROJECT_DIR$/lib/rel_model_res.py" />
+    <entry file="file://$PROJECT_DIR$/lib/pygcn/layers.py" />
+    <entry file="file://$PROJECT_DIR$/lib/pygcn/models.py" />
+    <entry file="file://$PROJECT_DIR$/lib/pygcn/train.py" />
+    <entry file="file://$PROJECT_DIR$/lib/AdamW.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="421">
+          <caret line="32" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/object_detector_joint.py" />
+    <entry file="file://$PROJECT_DIR$/lib/eval_map.py" />
+    <entry file="file://$PROJECT_DIR$/lib/eval_precision.py" />
+    <entry file="file://$PROJECT_DIR$/lib/ap_eval_rel.py" />
+    <entry file="file://$PROJECT_DIR$/lib/sparse_targets.py" />
+    <entry file="file://$PROJECT_DIR$/lib/word_vectors.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/get_union_boxes.py" />
+    <entry file="file://$PROJECT_DIR$/lib/pytorch_misc.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/draw_union_boxes_pytorch.py" />
+    <entry file="file://$PROJECT_DIR$/lib/transformer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="100" column="31" selection-start-line="100" selection-start-column="31" selection-end-line="100" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/funcs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="76" column="78" selection-start-line="76" selection-start-column="78" selection-end-line="76" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fasterRCNN/models/faster_rcnn_1_6_72803.pth">
+      <provider selected="true" editor-type-id="LargeFileEditor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dataloader/action_genome.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2816">
+          <caret line="13" column="8" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fasterRCNN/lib/model/faster_rcnn/faster_rcnn.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="638">
+          <caret line="111" selection-start-line="111" selection-end-line="111" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda3/tmp/envs/dynsg/lib/python3.6/site-packages/torch/nn/modules/module.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="492" selection-start-line="492" selection-end-line="492" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/object_detector.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="461">
+          <caret line="122" column="29" lean-forward="true" selection-start-line="122" selection-start-column="29" selection-end-line="122" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/evaluation_recall.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1">
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/sttran.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="315" selection-start-line="315" selection-end-line="315" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/slurm-362729-out.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/slurm-362731-out.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="724">
+          <caret line="43" column="5" selection-start-line="43" selection-end-line="43" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="33" column="12" lean-forward="true" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/config.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="12" column="22" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/slurm_train.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/slurm-362734-out.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/slurm-362733-out.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/slurm-362732-out.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/slurm-362730-out.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+  </component>
+</project>
