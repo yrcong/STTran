@@ -20,9 +20,9 @@ cd fpn/box_intersections_cpu
 python setup.py
 ```
 For the object detector part, please follow the compilation from https://github.com/jwyang/faster-rcnn.pytorch
-We provide a pretrained FasterRCNN model for Action Genome. Please download [here](https://drive.google.com/file/d/1-u930Pk0JYz3ivS6V_HNTM1D5AxmN5Bs/view?usp=sharing) and put it in
+We provide a pretrained FasterRCNN model for Action Genome. Please download [here](https://drive.google.com/file/d/1-u930Pk0JYz3ivS6V_HNTM1D5AxmN5Bs/view?usp=sharing) and put it in 
 ```
-fasterRCNN/models/
+fasterRCNN/models/faster_rcnn_ag.pth
 ```
 
 ## Dataset
