@@ -20,6 +20,7 @@ cd fpn/box_intersections_cpu
 python setup.py
 ```
 For the object detector part, please follow the compilation from https://github.com/jwyang/faster-rcnn.pytorch
+We provide a pretrained FasterRCNN model for Action Genome. Please download [here](https://drive.google.com/file/d/1-u930Pk0JYz3ivS6V_HNTM1D5AxmN5Bs/view?usp=sharing) 
 
 ## Dataset
 We use the dataset [Action Genome](https://www.actiongenome.org/#download) to train/evaluate our method. Please process the downloaded dataset with the [Toolkit](https://github.com/JingweiJ/ActionGenome). The directories of the dataset should look like:
@@ -30,8 +31,34 @@ We use the dataset [Action Genome](https://www.actiongenome.org/#download) to tr
     |-- videos        #original videos
 ```
 ## Train
+You can train the **STTran** with train.py. We trained the model on a RTX 2080ti:
++ For PredCLS: 
+```
+python train.py -mode predcls -datasize large -data_path $DATAPATH 
+```
++ For SGCLS: 
+```
+python train.py -mode sgcls -datasize large -data_path $DATAPATH 
+```
++ For SGDET: 
+```
+python train.py -mode sgdet -datasize large -data_path $DATAPATH 
+```
 
-
+## Evaluation
+You can evaluate the **STTran** with test.py.
++ For PredCLS ([trained Model](https://drive.google.com/file/d/1Sk5qFLWTZmwr63fHpy_C7oIxZSQU16vU/view?usp=sharing)): 
+```
+python test.py -m predcls -datasize large -data_path $DATAPATH -model_path $MODELPATH
+```
++ For SGCLS ([trained Model](https://drive.google.com/file/d/1ZbJ7JkTEVM9mCI-9e5bCo6uDlKbWttgH/view?usp=sharing)): : 
+```
+python test.py -m sgcls -datasize large -data_path $DATAPATH -model_path $MODELPATH
+```
++ For SGDET ([trained Model](https://drive.google.com/file/d/1dBE90bQaXB-xogRdyAJa2A5S8RwYvjPp/view?usp=sharing)): : 
+```
+python test.py -m sgdet -datasize large -data_path $DATAPATH -model_path $MODELPATH
+```
 
 ## Citation
 If our work is helpful for your research, please cite our publication:
@@ -43,3 +70,5 @@ If our work is helpful for your research, please cite our publication:
   year={2021}
 }
 ```
+## Help 
+When you have any question/idea about the code/paper. Please comment in Github or send us Email. We will reply as soon as possible.
