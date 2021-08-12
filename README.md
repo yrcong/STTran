@@ -66,9 +66,9 @@ python test.py -m sgdet -datasize large -data_path $DATAPATH -model_path $MODELP
 ## Citation
 If our work is helpful for your research, please cite our publication:
 ```
-@article{cong2021spatial,
+@inproceedings{cong2021spatial,
   title={Spatial-Temporal Transformer for Dynamic Scene Graph Generation},
-  author={Cong, Yuren and Liao, Wentong and Ackermann, Hanno and Yang, Michael Ying and Rosenhahn, Bodo},
+  author={Cong, Yuren and Liao, Wentong and Ackermann, Hanno and Rosenhahn, Bodo and Yang, Michael Ying},
   booktitle = {International Conference on Computer Vision (ICCV)},
   year={2021}
   url={https://arxiv.org/abs/2107.12309}
