@@ -14,10 +14,10 @@ git clone https://github.com/yrcong/STTran.git
 We borrow some compiled code for bbox operations.
 ```
 cd lib/draw_rectangles
-python setup.py
+python setup.py build_ext --inplace
 cd ..
 cd fpn/box_intersections_cpu
-python setup.py
+python setup.py build_ext --inplace
 ```
 For the object detector part, please follow the compilation from https://github.com/jwyang/faster-rcnn.pytorch
 We provide a pretrained FasterRCNN model for Action Genome. Please download [here](https://drive.google.com/file/d/1-u930Pk0JYz3ivS6V_HNTM1D5AxmN5Bs/view?usp=sharing) and put it in 
