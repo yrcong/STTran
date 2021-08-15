@@ -26,7 +26,7 @@ class detector(nn.Module):
 
         self.fasterRCNN = resnet(classes=self.object_classes, num_layers=101, pretrained=False, class_agnostic=False)
         self.fasterRCNN.create_architecture()
-        checkpoint = torch.load('fasterRCNN/models/faster_rcnn_ag.pth.pth')
+        checkpoint = torch.load('fasterRCNN/models/faster_rcnn_ag.pth')
         self.fasterRCNN.load_state_dict(checkpoint['model'])
 
         self.ROI_Align = copy.deepcopy(self.fasterRCNN.RCNN_roi_align)
