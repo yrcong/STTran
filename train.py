@@ -18,7 +18,6 @@ from lib.sttran import STTran
 
 """------------------------------------some settings----------------------------------------"""
 conf = Config()
-loss_type = 2  # there are three types of loss: {0: multi-label margin loss, 1:adaptive focal loss, 2: bce loss}
 print('The CKPT saved here:', conf.save_path)
 if not os.path.exists(conf.save_path):
     os.mkdir(conf.save_path)
