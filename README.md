@@ -33,7 +33,7 @@ We use the dataset [Action Genome](https://www.actiongenome.org/#download) to tr
     |-- frames        #sampled frames
     |-- videos        #original videos
 ```
- In the experiments for SGCLS/SGDET, we only keep bounding boxes with short edges larger than 16 pixels. Please download [object_bbox_and_relationship_filtersmall.pkl](https://drive.google.com/file/d/19BkAwjCw5ByyGyZjFo174Oc3Ud56fkaT/view?usp=sharing) and put it in the ```dataloader```
+ In the experiments for SGCLS/SGDET, we only keep bounding boxes with short edges larger than 16 pixels. Please download the file [object_bbox_and_relationship_filtersmall.pkl](https://drive.google.com/file/d/19BkAwjCw5ByyGyZjFo174Oc3Ud56fkaT/view?usp=sharing) and put it in the ```dataloader```
 
 ## Train
 You can train the **STTran** with train.py. We trained the model on a RTX 2080ti:
