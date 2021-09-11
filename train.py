@@ -80,7 +80,7 @@ tr = []
 
 for epoch in range(conf.nepoch):
     model.train()
-    object_detector.train_x = True
+    object_detector.is_train = True
     start = time.time()
     train_iter = iter(dataloader_train)
     test_iter = iter(dataloader_test)
