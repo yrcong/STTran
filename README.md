@@ -1,7 +1,7 @@
 # Spatial-Temporal Transformer for Dynamic Scene Graph Generation
 Pytorch Implementation of our paper [Spatial-Temporal Transformer for Dynamic Scene Graph Generation](https://arxiv.org/abs/2107.12309) accepted by **ICCV2021**. We propose a Transformer-based model **STTran** to generate dynamic scene graphs of the given video. **STTran** can detect the visual relationships in each frame.
 
-The introduction video is available now: [https://youtu.be/gKpnRU8btLg](https://youtu.be/gKpnRU8btLg)
+**The introduction video is available now:** [https://youtu.be/gKpnRU8btLg](https://youtu.be/gKpnRU8btLg)
 
 ![GitHub Logo](/data/framework.png)
 
