@@ -73,9 +73,9 @@ If our work is helpful for your research, please cite our publication:
 @inproceedings{cong2021spatial,
   title={Spatial-Temporal Transformer for Dynamic Scene Graph Generation},
   author={Cong, Yuren and Liao, Wentong and Ackermann, Hanno and Rosenhahn, Bodo and Yang, Michael Ying},
-  booktitle = {International Conference on Computer Vision (ICCV)},
+  booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
+  pages={16372--16382},
   year={2021}
-  url={https://arxiv.org/abs/2107.12309}
 }
 ```
 ## Help 
