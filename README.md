@@ -8,6 +8,19 @@ Pytorch Implementation of our paper [Spatial-Temporal Transformer for Dynamic Sc
 **About the code**
 We run the code on a single RTX2080ti for both training and testing. We borrowed some code from [Yang's repository](https://github.com/jwyang/faster-rcnn.pytorch) and [Zellers' repository](https://github.com/rowanz/neural-motifs).
 
+## Requirements
+- python=3.6
+- pytorch=1.1
+- scipy=1.1.0
+- cypthon
+- dill
+- easydict
+- h5py
+- opencv
+- pandas
+- tqdm
+- yaml
+
 ## Usage
 We use python=3.6, pytorch=1.1 and torchvision=0.3 in our code. First, clone the repository:
 ```
