@@ -84,14 +84,22 @@ with torch.no_grad():
         frame_names = data[5]
         gt_annotation = AG_dataset.gt_annotations[data[4]]
 
-        entry = object_detector(im_data, im_info, gt_boxes, num_boxes, gt_annotation, im_all=None)
-        pred = model(entry)
+        try:
+            entry = object_detector(im_data, im_info, gt_boxes, num_boxes, gt_annotation, im_all=None)
+            pred = model(entry)
+        except:
+            print('No Element in AG SG, Skip')
+            continue
 
         pred_entrys = evaluator1.detect_scene_graph(gt_annotation, dict(pred))
         
         for fid, pre_entry in zip(frame_names, pred_entrys):
-            sg = generate_scene_graph(pre_entry)
-            result[fid] = sg
+            try:
+                sg = generate_scene_graph(pre_entry)
+                result[fid] = sg
+            except:
+                print('No Element in STAR SG, Skip')
+                continue
 
         # if b>20:
         #     break
@@ -101,6 +109,8 @@ with torch.no_grad():
 save_path = 'STAR_' + conf.split + '_sg.json'
 with open(save_path,'w') as f:
     f.write(json.dumps(result))
+
+print('Detected SG  Num:', len(result.keys()))
 
 # print('-------------------------with constraint-------------------------------')
 # evaluator1.print_stats()
