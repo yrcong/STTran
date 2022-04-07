@@ -1,4 +1,5 @@
 import torch
+import json
 from PIL import Image
 from torch.utils.data import Dataset
 from torchvision.transforms import Resize, Compose, ToTensor, Normalize
@@ -9,9 +10,24 @@ import pickle
 import os
 from fasterRCNN.lib.model.utils.blob import prep_im_for_blob, im_list_to_blob
 
-class AG(Dataset):
+def load_star_keyframe_meta(path):
+    keyframes =[]
+    QA = json.load(open(path))
+    for qa in QA:
+        vid = qa['video_id']
+        for f in qa['situations'].keys():
+            meta = vid + '.mp4/' + f + '.png'
+            keyframes.append(meta)
+    keyframes = list(set(keyframes))
+    return keyframes
 
-    def __init__(self, mode, datasize, data_path=None, filter_nonperson_box_frame=True, filter_small_box=False):
+class STAR(Dataset):
+
+    def __init__(self, qa_path, split,
+        mode, datasize, data_path=None, filter_nonperson_box_frame=False, filter_small_box=False):
+
+        qa_path = qa_path + 'STAR_' + split + '.json'
+        star_keyframes = load_star_keyframe_meta(qa_path)
 
         root_path = data_path
         self.frames_path = os.path.join(root_path, 'Raw_Videos_Frames/Charades_v1_480/')
@@ -82,24 +98,23 @@ class AG(Dataset):
             person_bbox = small_person
             object_bbox = small_object
 
-
+        frame_count = 0
         # collect valid frames
         video_dict = {}
-        for i in person_bbox.keys(): # ZZXQF.mp4/000520.png
-            if object_bbox[i][0]['metadata']['set'] == mode: #train or testing?
-                frame_valid = False
-                for j in object_bbox[i]: # the frame is valid if there is visible bbox
-                    if j['visible']:
-                        frame_valid = True
-                if frame_valid:
-                    video_name, frame_num = i.split('/') # ZZXQF.mp4 000520.png
-                    if video_name in video_dict.keys():
-                        video_dict[video_name].append(i)
-                    else:
-                        video_dict[video_name] = [i]
-
+        for i in star_keyframes:#person_bbox.keys():
+            #if object_bbox[i][0]['metadata']['set'] == mode: #train or testing?
+            frame_valid = False
+            #for j in object_bbox[i]: # the frame is valid if there is visible bbox
+            #    if j['visible']:
+            #        frame_valid = True
+            #if frame_valid:
+            video_name, frame_num = i.split('/')
+            if video_name in video_dict.keys():
+                video_dict[video_name].append(i)
+            else:
+                video_dict[video_name] = [i]
+                
         self.video_list = []
-        #self.video_name = []
         self.video_size = [] # (w,h)
         self.gt_annotations = []
         self.non_gt_human_nums = 0
@@ -112,17 +127,17 @@ class AG(Dataset):
         filter_nonperson_box_frame = True (default): according to the stanford method, remove the frames without person box both for training and testing
         filter_nonperson_box_frame = False: still use the frames without person box, FasterRCNN may find the person
         '''
-        for i in video_dict.keys(): # i video id
+        for i in video_dict.keys():
             video = []
             gt_annotation_video = []
-            for j in video_dict[i]: # j video id + frame id
-                if filter_nonperson_box_frame:
-                    if person_bbox[j]['bbox'].shape[0] == 0:
-                        self.non_gt_human_nums += 1
-                        continue
-                    else:
-                        video.append(j)
-                        self.valid_nums += 1
+            for j in video_dict[i]:
+                #if filter_nonperson_box_frame:
+                #    if person_bbox[j]['bbox'].shape[0] == 0:
+                #        self.non_gt_human_nums += 1
+                #        continue
+                #    else:
+                video.append(j)
+                self.valid_nums += 1
 
                 gt_annotation_frame = [{'person_bbox': person_bbox[j]['bbox']}]
                 # each frames's objects and human
@@ -147,6 +162,7 @@ class AG(Dataset):
                 self.non_person_video += 1
 
         print('x'*60)
+        print('STAR ',split,'keyframes:',len(star_keyframes))
         if filter_nonperson_box_frame:
             print('There are {} videos and {} valid frames'.format(len(self.video_list), self.valid_nums))
             print('{} videos are invalid (no person), remove them'.format(self.non_person_video))
@@ -155,7 +171,7 @@ class AG(Dataset):
         else:
             print('There are {} videos and {} valid frames'.format(len(self.video_list), self.valid_nums))
             print('{} frames have no human bbox in GT'.format(self.non_gt_human_nums))
-            print('Removed {} of them without joint heatmaps which means FasterRCNN also cannot find the human'.format(non_heatmap_nums))
+            print('Removed {} of them without joint heatmaps which means FasterRCNN also cannot find the human'.format(self.non_heatmap_nums))
         print('x' * 60)
 
     def __getitem__(self, index):

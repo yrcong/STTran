@@ -297,7 +297,7 @@ class STTran(nn.Module):
         self.obj_fc = nn.Linear(2048, 512)
         self.vr_fc = nn.Linear(256*7*7, 512)
 
-        embed_vecs = obj_edge_vectors(obj_classes, wv_type='glove.6B', wv_dir='/home/cong/Dokumente/neural-motifs-master/data', wv_dim=200)
+        embed_vecs = obj_edge_vectors(obj_classes, wv_type='glove.6B', wv_dir='/nobackup/users/bowu/code/NeuralReasoning/STTran/data/', wv_dim=200)
         self.obj_embed = nn.Embedding(len(obj_classes), 200)
         self.obj_embed.weight.data = embed_vecs.clone()
 

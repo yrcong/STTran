@@ -5,20 +5,20 @@ np.set_printoptions(precision=4)
 import copy
 import torch
 
-from dataloader.action_genome import AG, cuda_collate_fn
 from dataloader.star import STAR, cuda_collate_fn
-
+from utils_sgdet import generate_scene_graph
 from lib.config import Config
 from lib.evaluation_recall import BasicSceneGraphEvaluator
 from lib.object_detector import detector
 from lib.sttran import STTran
 from tqdm import tqdm
+import json
 
 conf = Config()
 for i in conf.args:
     print(i,':', conf.args[i])
 
-AG_dataset = AG(mode="test", datasize=conf.datasize, data_path=conf.data_path, filter_nonperson_box_frame=True,
+AG_dataset = STAR(qa_path='/nobackup/users/bowu/data/STAR/Question_Answer_SituationGraph/', split=conf.split, mode="test", datasize=conf.datasize, data_path=conf.data_path, filter_nonperson_box_frame=True,
                 filter_small_box=False if conf.mode == 'predcls' else True)
 dataloader = torch.utils.data.DataLoader(AG_dataset, shuffle=False, num_workers=0, collate_fn=cuda_collate_fn)
 
@@ -72,6 +72,8 @@ evaluator3 = BasicSceneGraphEvaluator(
     iou_threshold=0.5,
     constraint='no')
 
+result = {}
+
 with torch.no_grad():
     for b, data in enumerate(tqdm(dataloader)):
 
@@ -79,20 +81,30 @@ with torch.no_grad():
         im_info = copy.deepcopy(data[1].cuda(0))
         gt_boxes = copy.deepcopy(data[2].cuda(0))
         num_boxes = copy.deepcopy(data[3].cuda(0))
-        #frame_names = data[4]
+        frame_names = data[5]
         gt_annotation = AG_dataset.gt_annotations[data[4]]
 
         entry = object_detector(im_data, im_info, gt_boxes, num_boxes, gt_annotation, im_all=None)
         pred = model(entry)
 
-        evaluator1.evaluate_scene_graph(gt_annotation, dict(pred))
-        evaluator2.evaluate_scene_graph(gt_annotation, dict(pred))
-        evaluator3.evaluate_scene_graph(gt_annotation, dict(pred))
+        pred_entrys = evaluator1.detect_scene_graph(gt_annotation, dict(pred))
+        
+        for fid, pre_entry in zip(frame_names, pred_entrys):
+            sg = generate_scene_graph(pre_entry)
+            result[fid] = sg
 
+        # if b>20:
+        #     break
+#         evaluator2.evaluate_scene_graph(gt_annotation, dict(pred))
+#         evaluator3.evaluate_scene_graph(gt_annotation, dict(pred))
 
-print('-------------------------with constraint-------------------------------')
-evaluator1.print_stats()
-print('-------------------------semi constraint-------------------------------')
-evaluator2.print_stats()
-print('-------------------------no constraint-------------------------------')
-evaluator3.print_stats()
+save_path = 'STAR_' + conf.split + '_sg.json'
+with open(save_path,'w') as f:
+    f.write(json.dumps(result))
+
+# print('-------------------------with constraint-------------------------------')
+# evaluator1.print_stats()
+# print('-------------------------semi constraint-------------------------------')
+# evaluator2.print_stats()
+# print('-------------------------no constraint-------------------------------')
+# evaluator3.print_stats()

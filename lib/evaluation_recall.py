@@ -28,10 +28,91 @@ class BasicSceneGraphEvaluator:
         for k, v in self.result_dict[self.mode + '_recall'].items():
             print('R@%i: %f' % (k, np.mean(v)))
 
+    def detect_scene_graph(self, gt, pred):
+        '''collect the groundtruth and prediction'''
+
+        pred['attention_distribution'] = nn.functional.softmax(pred['attention_distribution'], dim=1)
+
+        #gt_entrys = []
+        pred_entrys = []
+
+        for idx, frame_gt in enumerate(gt):
+            # generate the ground truth
+            #gt_boxes = np.zeros([len(frame_gt), 4]) #now there is no person box! we assume that person box index == 0
+            #gt_classes = np.zeros(len(frame_gt))
+            #gt_relations = []
+            human_idx = 0
+            #gt_classes[human_idx] = 1
+            #gt_boxes[human_idx] = frame_gt[0]['person_bbox']
+
+            # for m, n in enumerate(frame_gt[1:]):
+                # each pair
+                #gt_boxes[m+1,:] = n['bbox']
+                # gt_classes[m+1] = n['class']
+                # gt_relations.append([human_idx, m+1, self.AG_all_predicates.index(self.AG_attention_predicates[n['attention_relationship']])]) # for attention triplet <human-object-predicate>_
+                # #spatial and contacting relationship could be multiple
+                # for spatial in n['spatial_relationship'].numpy().tolist():
+                #     gt_relations.append([m+1, human_idx, self.AG_all_predicates.index(self.AG_spatial_predicates[spatial])]) # for spatial triplet <object-human-predicate>
+                # for contact in n['contacting_relationship'].numpy().tolist():
+                #     gt_relations.append([human_idx, m+1, self.AG_all_predicates.index(self.AG_contacting_predicates[contact])])  # for contact triplet <human-object-predicate>
+
+            # gt_entry = {
+            #     'gt_classes': gt_classes,
+            #     'gt_relations': np.array(gt_relations),
+            #     'gt_boxes': gt_boxes,
+            # }
+            #gt_entrys.append(gt_entry)
+
+            # first part for attention and contact, second for spatial
+
+            rels_i = np.concatenate((pred['pair_idx'][pred['im_idx'] == idx].cpu().clone().numpy(),             #attention
+                                     pred['pair_idx'][pred['im_idx'] == idx].cpu().clone().numpy()[:,::-1],     #spatial
+                                     pred['pair_idx'][pred['im_idx'] == idx].cpu().clone().numpy()), axis=0)    #contacting
+
+
+            pred_scores_1 = np.concatenate((pred['attention_distribution'][pred['im_idx'] == idx].cpu().numpy(),
+                                            np.zeros([pred['pair_idx'][pred['im_idx'] == idx].shape[0], pred['spatial_distribution'].shape[1]]),
+                                            np.zeros([pred['pair_idx'][pred['im_idx'] == idx].shape[0], pred['contacting_distribution'].shape[1]])), axis=1)
+
+            pred_scores_2 = np.concatenate((np.zeros([pred['pair_idx'][pred['im_idx'] == idx].shape[0], pred['attention_distribution'].shape[1]]),
+                                            pred['spatial_distribution'][pred['im_idx'] == idx].cpu().numpy(),
+                                            np.zeros([pred['pair_idx'][pred['im_idx'] == idx].shape[0], pred['contacting_distribution'].shape[1]])), axis=1)
+
+            pred_scores_3 = np.concatenate((np.zeros([pred['pair_idx'][pred['im_idx'] == idx].shape[0], pred['attention_distribution'].shape[1]]),
+                                            np.zeros([pred['pair_idx'][pred['im_idx'] == idx].shape[0], pred['spatial_distribution'].shape[1]]),
+                                            pred['contacting_distribution'][pred['im_idx'] == idx].cpu().numpy()), axis=1)
+
+            if self.mode == 'predcls':
+
+                pred_entry = {
+                    'pred_boxes': pred['boxes'][:,1:].cpu().clone().numpy(),
+                    'pred_classes': pred['labels'].cpu().clone().numpy(),
+                    'pred_rel_inds': rels_i,
+                    'obj_scores': pred['scores'].cpu().clone().numpy(),
+                    'rel_scores': np.concatenate((pred_scores_1, pred_scores_2, pred_scores_3), axis=0)
+                }
+            else:
+                pred_entry = {
+                    'pred_boxes': pred['boxes'][:, 1:].cpu().clone().numpy(),
+                    'pred_classes': pred['pred_labels'].cpu().clone().numpy(),
+                    'pred_rel_inds': rels_i,
+                    'obj_scores': pred['pred_scores'].cpu().clone().numpy(),
+                    'rel_scores': np.concatenate((pred_scores_1, pred_scores_2, pred_scores_3), axis=0)
+                }
+            pred_entrys.append(pred_entry)
+
+            # evaluate_from_dict(gt_entry, pred_entry, self.mode, self.result_dict,
+            #                    iou_thresh=self.iou_threshold, method=self.constraint, threshold=self.semithreshold)
+
+        return pred_entrys
+
     def evaluate_scene_graph(self, gt, pred):
         '''collect the groundtruth and prediction'''
 
         pred['attention_distribution'] = nn.functional.softmax(pred['attention_distribution'], dim=1)
+
+        gt_entrys = []
+        pred_entrys = []
 
         for idx, frame_gt in enumerate(gt):
             # generate the ground truth
@@ -57,6 +138,7 @@ class BasicSceneGraphEvaluator:
                 'gt_relations': np.array(gt_relations),
                 'gt_boxes': gt_boxes,
             }
+            gt_entrys.append(gt_entry)
 
             # first part for attention and contact, second for spatial
 
@@ -68,9 +150,11 @@ class BasicSceneGraphEvaluator:
             pred_scores_1 = np.concatenate((pred['attention_distribution'][pred['im_idx'] == idx].cpu().numpy(),
                                             np.zeros([pred['pair_idx'][pred['im_idx'] == idx].shape[0], pred['spatial_distribution'].shape[1]]),
                                             np.zeros([pred['pair_idx'][pred['im_idx'] == idx].shape[0], pred['contacting_distribution'].shape[1]])), axis=1)
+
             pred_scores_2 = np.concatenate((np.zeros([pred['pair_idx'][pred['im_idx'] == idx].shape[0], pred['attention_distribution'].shape[1]]),
                                             pred['spatial_distribution'][pred['im_idx'] == idx].cpu().numpy(),
                                             np.zeros([pred['pair_idx'][pred['im_idx'] == idx].shape[0], pred['contacting_distribution'].shape[1]])), axis=1)
+
             pred_scores_3 = np.concatenate((np.zeros([pred['pair_idx'][pred['im_idx'] == idx].shape[0], pred['attention_distribution'].shape[1]]),
                                             np.zeros([pred['pair_idx'][pred['im_idx'] == idx].shape[0], pred['spatial_distribution'].shape[1]]),
                                             pred['contacting_distribution'][pred['im_idx'] == idx].cpu().numpy()), axis=1)
@@ -92,6 +176,7 @@ class BasicSceneGraphEvaluator:
                     'obj_scores': pred['pred_scores'].cpu().clone().numpy(),
                     'rel_scores': np.concatenate((pred_scores_1, pred_scores_2, pred_scores_3), axis=0)
                 }
+            pred_entrys.append(pred_entry)
 
             evaluate_from_dict(gt_entry, pred_entry, self.mode, self.result_dict,
                                iou_thresh=self.iou_threshold, method=self.constraint, threshold=self.semithreshold)
@@ -138,6 +223,7 @@ def evaluate_from_dict(gt_entry, pred_entry, mode, result_dict, method=None, thr
 
         pred_rels = np.array(pred_rels)
         predicate_scores = np.array(predicate_scores)
+
     elif method == 'no':
         obj_scores_per_rel = obj_scores[pred_rel_inds].prod(1)
         overall_scores = obj_scores_per_rel[:, None] * rel_scores
@@ -162,6 +248,7 @@ def evaluate_from_dict(gt_entry, pred_entry, mode, result_dict, method=None, thr
 
         rec_i = float(len(match)) / float(gt_rels.shape[0])
         result_dict[mode + '_recall'][k].append(rec_i)
+        
     return pred_to_gt, pred_5ples, rel_scores
 
 ###########################

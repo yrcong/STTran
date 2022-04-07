@@ -47,7 +47,7 @@ class _RPN(nn.Module):
     @staticmethod
     def reshape(x, d):
         input_shape = x.size()
-        x = x.view(
+        x = x.contiguous().view(
             input_shape[0],
             int(d),
             int(float(input_shape[1] * input_shape[2]) / float(d)),
