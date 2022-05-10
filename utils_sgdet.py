@@ -38,7 +38,7 @@ def load_ag_cls(root_path='/nobackup/users/bowu/data/STAR/AG_annotations/'):
     
     return object_classes, relationship_classes
 
-def load_star_cls(root_path='/nobackup/users/bowu/data/STAR/Annotations/classes/'):
+def load_star_cls(root_path='/nobackup/users/bowu/data/STAR/Annotations/'):
     object_classes = {}
     with open(os.path.join(root_path, 'object_classes.txt'), 'r') as f:
         for line in f.readlines():
@@ -134,7 +134,7 @@ def generate_scene_graph(pred_entry):
     
     pred_rels, predicate_scores = constrain(pred_rel_inds,rel_scores)
     pred_rels = remove_att_rel(pred_rels)
-    
+    #print(pred_rels)
     exsit_obj_idx = list(set(pred_rels[:,0].tolist() + pred_rels[:,1].tolist()))
     keep_idx = nms(pred_boxes[exsit_obj_idx], obj_scores[exsit_obj_idx],0.3)
     keep_obj_idx = sorted(np.array(exsit_obj_idx)[keep_idx])

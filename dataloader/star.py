@@ -138,8 +138,10 @@ class STAR(Dataset):
                 #    else:
                 video.append(j)
                 self.valid_nums += 1
-
-                gt_annotation_frame = [{'person_bbox': person_bbox[j]['bbox']}]
+                if person_bbox[j]['bbox'].shape[0] != 0:
+                    gt_annotation_frame = [{'person_bbox': person_bbox[j]['bbox']}]
+                else:
+                    gt_annotation_frame = []
                 # each frames's objects and human
                 for k in object_bbox[j]:
                     if k['visible']:

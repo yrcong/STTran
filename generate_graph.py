@@ -98,7 +98,7 @@ with torch.no_grad():
                 sg = generate_scene_graph(pre_entry)
                 result[fid] = sg
             except:
-                print('No Element in STAR SG, Skip')
+                print(fid ,'No Element in STAR SG, Skip')
                 continue
 
         # if b>20:
@@ -106,11 +106,11 @@ with torch.no_grad():
 #         evaluator2.evaluate_scene_graph(gt_annotation, dict(pred))
 #         evaluator3.evaluate_scene_graph(gt_annotation, dict(pred))
 
-save_path = 'STAR_' + conf.split + '_sg.json'
+save_path = 'STAR_' + conf.split + '_'+ conf.mode + '_sg.json'
 with open(save_path,'w') as f:
     f.write(json.dumps(result))
 
-print('Detected SG  Num:', len(result.keys()))
+print('Detected SG Num:', len(result.keys()))
 
 # print('-------------------------with constraint-------------------------------')
 # evaluator1.print_stats()
