@@ -1,10 +1,10 @@
 setup.py
-/home/cong/Dokumente/faster-rcnn.pytorch/lib/model/csrc/vision.cpp
-/home/cong/Dokumente/faster-rcnn.pytorch/lib/model/csrc/cpu/ROIAlign_cpu.cpp
-/home/cong/Dokumente/faster-rcnn.pytorch/lib/model/csrc/cpu/nms_cpu.cpp
-/home/cong/Dokumente/faster-rcnn.pytorch/lib/model/csrc/cuda/ROIAlign_cuda.cu
-/home/cong/Dokumente/faster-rcnn.pytorch/lib/model/csrc/cuda/ROIPool_cuda.cu
-/home/cong/Dokumente/faster-rcnn.pytorch/lib/model/csrc/cuda/nms.cu
+/nobackup/users/bowu/code/NeuralReasoning/STTran/fasterRCNN/lib/model/csrc/vision.cpp
+/nobackup/users/bowu/code/NeuralReasoning/STTran/fasterRCNN/lib/model/csrc/cpu/ROIAlign_cpu.cpp
+/nobackup/users/bowu/code/NeuralReasoning/STTran/fasterRCNN/lib/model/csrc/cpu/nms_cpu.cpp
+/nobackup/users/bowu/code/NeuralReasoning/STTran/fasterRCNN/lib/model/csrc/cuda/ROIAlign_cuda.cu
+/nobackup/users/bowu/code/NeuralReasoning/STTran/fasterRCNN/lib/model/csrc/cuda/ROIPool_cuda.cu
+/nobackup/users/bowu/code/NeuralReasoning/STTran/fasterRCNN/lib/model/csrc/cuda/nms.cu
 datasets/__init__.py
 datasets/coco.py
 datasets/ds_utils.py

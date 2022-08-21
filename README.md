@@ -50,19 +50,23 @@ We use the dataset [Action Genome](https://www.actiongenome.org/#download) to tr
 ```
  In the experiments for SGCLS/SGDET, we only keep bounding boxes with short edges larger than 16 pixels. Please download the file [object_bbox_and_relationship_filtersmall.pkl](https://drive.google.com/file/d/19BkAwjCw5ByyGyZjFo174Oc3Ud56fkaT/view?usp=sharing) and put it in the ```dataloader```
 
+## Config
+export MODELPATH=exp/
+export DATAPATH=data/STAR
+
 ## Train
 You can train the **STTran** with train.py. We trained the model on a RTX 2080ti:
 + For PredCLS: 
 ```
-python train.py -mode predcls -datasize large -data_path $DATAPATH 
+python train.py -mode predcls -datasize large -data_path $DATAPATH -model_path $MODELPATH
 ```
 + For SGCLS: 
 ```
-python train.py -mode sgcls -datasize large -data_path $DATAPATH 
+python train.py -mode sgcls -datasize large -data_path $DATAPATH -model_path $MODELPATH
 ```
 + For SGDET: 
 ```
-python train.py -mode sgdet -datasize large -data_path $DATAPATH 
+python train.py -mode sgdet -datasize large -data_path $DATAPATH -model_path $MODELPATH
 ```
 
 ## Evaluation
