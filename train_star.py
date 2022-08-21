@@ -11,7 +11,8 @@ import os
 import pandas as pd
 import copy
 
-from dataloader.action_genome import AG, cuda_collate_fn
+from dataloader.star import STAR, cuda_collate_fn
+#from dataloader.action_genome import AG, cuda_collate_fn
 from lib.object_detector import detector
 from lib.config import Config
 from lib.evaluation_recall import BasicSceneGraphEvaluator
@@ -28,13 +29,21 @@ for i in conf.args:
     print(i,':', conf.args[i])
 """-----------------------------------------------------------------------------------------"""
 
-AG_dataset_train = AG(mode="train", datasize=conf.datasize, data_path=conf.data_path, filter_nonperson_box_frame=True,
-                      filter_small_box=False if conf.mode == 'predcls' else True)
+AG_dataset_train = STAR(qa_path='/nobackup/users/bowu/data/STAR/Question_Answer_SituationGraph/', split='train', mode="test", datasize=conf.datasize, data_path=conf.data_path, filter_nonperson_box_frame=True,
+                filter_small_box=False if conf.mode == 'predcls' else True)
+
+# AG_dataset_train = STAR(mode="train", datasize=conf.datasize, data_path=conf.data_path, filter_nonperson_box_frame=True,
+#                       filter_small_box=False if conf.mode == 'predcls' else True)
 dataloader_train = torch.utils.data.DataLoader(AG_dataset_train, shuffle=True, num_workers=4,
                                                collate_fn=cuda_collate_fn, pin_memory=False)
-AG_dataset_test = AG(mode="test", datasize=conf.datasize, data_path=conf.data_path, filter_nonperson_box_frame=True,
-                     filter_small_box=False if conf.mode == 'predcls' else True)
-dataloader_test = torch.utils.data.DataLoader(AG_dataset_test, shuffle=False, num_workers=4,
+
+AG_dataset_val = STAR(qa_path='/nobackup/users/bowu/data/STAR/Question_Answer_SituationGraph/', split='val', mode="test", datasize=conf.datasize, data_path=conf.data_path, filter_nonperson_box_frame=True,
+                filter_small_box=False if conf.mode == 'predcls' else True)
+
+# AG_dataset_test = AG(mode="test", datasize=conf.datasize, data_path=conf.data_path, filter_nonperson_box_frame=True,
+#                      filter_small_box=False if conf.mode == 'predcls' else True)
+
+dataloader_test = torch.utils.data.DataLoader(AG_dataset_val, shuffle=False, num_workers=4,
                                               collate_fn=cuda_collate_fn, pin_memory=False)
 
 gpu_device = torch.device("cuda:0")
@@ -126,6 +135,8 @@ for epoch in range(conf.nepoch):
 
         losses = {}
         if conf.mode == 'sgcls' or conf.mode == 'sgdet':
+            #print('distribution', pred['distribution'].shape)
+            #print('labels', pred['labels'].shape)
             losses['object_loss'] = ce_loss(pred['distribution'], pred['labels'])
 
         losses["attention_relation_loss"] = ce_loss(attention_distribution, attention_label)
@@ -145,12 +156,12 @@ for epoch in range(conf.nepoch):
 
         tr.append(pd.Series({x: y.item() for x, y in losses.items()}))
 
-        if b % 200 == 0 and b >= 200:
-            time_per_batch = (time.time() - start) / 200
+        if b % 1000 == 0 and b >= 1000:
+            time_per_batch = (time.time() - start) / 1000
             print("\ne{:2d}  b{:5d}/{:5d}  {:.3f}s/batch, {:.1f}m/epoch".format(epoch, b, len(dataloader_train),
                                                                                 time_per_batch, len(dataloader_train) * time_per_batch / 60))
 
-            mn = pd.concat(tr[-200:], axis=1).mean(1)
+            mn = pd.concat(tr[-1000:], axis=1).mean(1)
             print(mn)
             start = time.time()
 

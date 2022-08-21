@@ -24,13 +24,21 @@ def load_star_keyframe_meta(path):
 class STAR(Dataset):
 
     def __init__(self, qa_path, split,
+<<<<<<< Updated upstream
         mode, datasize, data_path=None, filter_nonperson_box_frame=False, filter_small_box=False):
+=======
+        mode, datasize, data_path=None, filter_nonperson_box_frame=False, filter_small_box=False, training_mode=True):
+>>>>>>> Stashed changes
 
         qa_path = qa_path + 'STAR_' + split + '.json'
         star_keyframes = load_star_keyframe_meta(qa_path)
 
         root_path = data_path
         self.frames_path = os.path.join(root_path, 'Raw_Videos_Frames/Charades_v1_480/')
+<<<<<<< Updated upstream
+=======
+        self.training_mode = training_mode
+>>>>>>> Stashed changes
 
         # collect the object classes
         self.object_classes = ['__background__']
@@ -78,7 +86,11 @@ class STAR(Dataset):
             with open(root_path + 'AG_annotations/person_bbox.pkl', 'rb') as f:
                 person_bbox = pickle.load(f)
             f.close()
+<<<<<<< Updated upstream
             with open('dataloader/object_bbox_and_relationship_filtersmall.pkl', 'rb') as f:
+=======
+            with open('exp/object_bbox_and_relationship_filtersmall.pkl', 'rb') as f:
+>>>>>>> Stashed changes
                 object_bbox = pickle.load(f)
         else:
             with open(root_path + 'AG_annotations/person_bbox.pkl', 'rb') as f:
@@ -141,6 +153,12 @@ class STAR(Dataset):
                 if person_bbox[j]['bbox'].shape[0] != 0:
                     gt_annotation_frame = [{'person_bbox': person_bbox[j]['bbox']}]
                 else:
+<<<<<<< Updated upstream
+=======
+                    if self.training_mode:
+                        self.non_gt_human_nums += 1
+                        continue
+>>>>>>> Stashed changes
                     gt_annotation_frame = []
                 # each frames's objects and human
                 for k in object_bbox[j]:

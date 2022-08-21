@@ -62,7 +62,7 @@ class AG(Dataset):
             with open(root_path + 'AG_annotations/person_bbox.pkl', 'rb') as f:
                 person_bbox = pickle.load(f)
             f.close()
-            with open('dataloader/object_bbox_and_relationship_filtersmall.pkl', 'rb') as f:
+            with open('exp/object_bbox_and_relationship_filtersmall.pkl', 'rb') as f:
                 object_bbox = pickle.load(f)
         else:
             with open(root_path + 'AG_annotations/person_bbox.pkl', 'rb') as f:
