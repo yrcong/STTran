@@ -1,0 +1,23 @@
+name: sttran
+channels:
+  - conda-forge
+  - https://opence.mit.edu
+  - https://ftp.osuosl.org/pub/open-ce/current/
+  - https://public.dhe.ibm.com/ibmdl/export/pub/software/server/ibm-ai/conda-early-access/linux-ppc64le/
+  - https://public.dhe.ibm.com/ibmdl/export/pub/software/server/ibm-ai/conda/
+  - https://public.dhe.ibm.com/ibmdl/export/pub/software/server/ibm-ai/conda-early-access/
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+  - defaults
+  - pytorch
+dependencies:
+  - python=3.6
+  - tokenizers
+  - cudatoolkit=10.2
+  - pytorch
+  - torchvision
+  - powerai
+  - cffi
+  - cudatoolkit-dev
+  - gxx_linux-ppc64le=7.3.0
+  - horovod
