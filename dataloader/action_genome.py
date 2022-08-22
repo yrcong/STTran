@@ -3,7 +3,7 @@ from PIL import Image
 from torch.utils.data import Dataset
 from torchvision.transforms import Resize, Compose, ToTensor, Normalize
 import random
-from scipy.misc import imread
+from imageio import imread
 import numpy as np
 import pickle
 import os
@@ -14,7 +14,7 @@ class AG(Dataset):
     def __init__(self, mode, datasize, data_path=None, filter_nonperson_box_frame=True, filter_small_box=False):
 
         root_path = data_path
-        self.frames_path = os.path.join(root_path, 'Raw_Videos_Frames/Charades_v1_480/')
+        self.frames_path = os.path.join(root_path, 'Raw_Videos_Frames/Charades_v1_480_ActionGenome_Keyframes/')
 
         # collect the object classes
         self.object_classes = ['__background__']

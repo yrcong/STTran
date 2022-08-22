@@ -56,17 +56,20 @@ export DATAPATH=data/STAR
 
 ## Train
 You can train the **STTran** with train.py. We trained the model on a RTX 2080ti:
+export DATAPATH=~/scratch/data/STAR/
+export SAVEPATH=exp/sttran_with_swin/checkpoints/
+export MODELPATH=exp/sttran_models/
 + For PredCLS: 
 ```
-python train.py -mode predcls -datasize large -data_path $DATAPATH -model_path $MODELPATH
+python train.py -mode predcls -datasize large -data_path $DATAPATH -save_path $SAVEPATH
 ```
 + For SGCLS: 
 ```
-python train.py -mode sgcls -datasize large -data_path $DATAPATH -model_path $MODELPATH
+python train.py -mode sgcls -datasize large -data_path $DATAPATH -save_path $SAVEPATH 
 ```
 + For SGDET: 
 ```
-python train.py -mode sgdet -datasize large -data_path $DATAPATH -model_path $MODELPATH
+python train.py -mode sgdet -datasize large -data_path $DATAPATH -save_path $SAVEPATH 
 ```
 
 ## Evaluation

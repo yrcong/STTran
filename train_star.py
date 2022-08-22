@@ -29,7 +29,7 @@ for i in conf.args:
     print(i,':', conf.args[i])
 """-----------------------------------------------------------------------------------------"""
 
-AG_dataset_train = STAR(qa_path='/nobackup/users/bowu/data/STAR/Question_Answer_SituationGraph/', split='train', mode="test", datasize=conf.datasize, data_path=conf.data_path, filter_nonperson_box_frame=True,
+AG_dataset_train = STAR(qa_path= conf.data_path+'/Question_Answer_SituationGraph/', split='train', mode="test", datasize=conf.datasize, data_path=conf.data_path, filter_nonperson_box_frame=True,
                 filter_small_box=False if conf.mode == 'predcls' else True)
 
 # AG_dataset_train = STAR(mode="train", datasize=conf.datasize, data_path=conf.data_path, filter_nonperson_box_frame=True,
@@ -37,7 +37,7 @@ AG_dataset_train = STAR(qa_path='/nobackup/users/bowu/data/STAR/Question_Answer_
 dataloader_train = torch.utils.data.DataLoader(AG_dataset_train, shuffle=True, num_workers=4,
                                                collate_fn=cuda_collate_fn, pin_memory=False)
 
-AG_dataset_val = STAR(qa_path='/nobackup/users/bowu/data/STAR/Question_Answer_SituationGraph/', split='val', mode="test", datasize=conf.datasize, data_path=conf.data_path, filter_nonperson_box_frame=True,
+AG_dataset_val = STAR(qa_path= conf.data_path+'/Question_Answer_SituationGraph/', split='val', mode="test", datasize=conf.datasize, data_path=conf.data_path, filter_nonperson_box_frame=True,
                 filter_small_box=False if conf.mode == 'predcls' else True)
 
 # AG_dataset_test = AG(mode="test", datasize=conf.datasize, data_path=conf.data_path, filter_nonperson_box_frame=True,

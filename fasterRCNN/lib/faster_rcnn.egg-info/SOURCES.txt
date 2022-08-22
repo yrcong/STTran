@@ -1,10 +1,19 @@
 setup.py
+<<<<<<< Updated upstream
 /nobackup/users/bowu/code/NeuralReasoning/STTran/fasterRCNN/lib/model/csrc/vision.cpp
 /nobackup/users/bowu/code/NeuralReasoning/STTran/fasterRCNN/lib/model/csrc/cpu/ROIAlign_cpu.cpp
 /nobackup/users/bowu/code/NeuralReasoning/STTran/fasterRCNN/lib/model/csrc/cpu/nms_cpu.cpp
 /nobackup/users/bowu/code/NeuralReasoning/STTran/fasterRCNN/lib/model/csrc/cuda/ROIAlign_cuda.cu
 /nobackup/users/bowu/code/NeuralReasoning/STTran/fasterRCNN/lib/model/csrc/cuda/ROIPool_cuda.cu
 /nobackup/users/bowu/code/NeuralReasoning/STTran/fasterRCNN/lib/model/csrc/cuda/nms.cu
+=======
+/gpfs/u/scratch/NSVR/NSVRbowu/code/STTran/fasterRCNN/lib/model/csrc/vision.cpp
+/gpfs/u/scratch/NSVR/NSVRbowu/code/STTran/fasterRCNN/lib/model/csrc/cpu/ROIAlign_cpu.cpp
+/gpfs/u/scratch/NSVR/NSVRbowu/code/STTran/fasterRCNN/lib/model/csrc/cpu/nms_cpu.cpp
+/gpfs/u/scratch/NSVR/NSVRbowu/code/STTran/fasterRCNN/lib/model/csrc/cuda/ROIAlign_cuda.cu
+/gpfs/u/scratch/NSVR/NSVRbowu/code/STTran/fasterRCNN/lib/model/csrc/cuda/ROIPool_cuda.cu
+/gpfs/u/scratch/NSVR/NSVRbowu/code/STTran/fasterRCNN/lib/model/csrc/cuda/nms.cu
+>>>>>>> Stashed changes
 datasets/__init__.py
 datasets/coco.py
 datasets/ds_utils.py
